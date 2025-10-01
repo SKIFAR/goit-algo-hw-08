@@ -132,6 +132,11 @@ def delete_node(root, key):
 def min_value(node):
     return min_value_node(node).key
 
+def keys_sum(node):
+    if node is None:
+        return 0
+    return node.key + keys_sum(node.left) + keys_sum(node.right)
+
 def main():
     root = None
     keys = [10, 20, 30, 25, 28, 27, -1]
@@ -141,6 +146,7 @@ def main():
 
     print(root)
     print("Minimum value in the tree:", min_value(root))
+    print("Sum of values in the tree:", keys_sum(root))
 
 if __name__ == "__main__":
     main()
